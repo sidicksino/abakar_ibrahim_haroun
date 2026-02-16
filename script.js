@@ -9,21 +9,16 @@ function cancel(){
 }
 
 // Setup Event Listeners
-document.addEventListener('DOMContentLoaded', () => {
-    // Dropdown Links
-    const dropdownLinks = document.querySelectorAll(".dropdown .links a");
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            cancel();
-        });
-    });
-
-    // Cancel Button
-    const cancelBtn = document.querySelector(".cancel");
-    if(cancelBtn) {
-        cancelBtn.addEventListener('click', cancel);
-    }
+// Script is at the end of body, so DOM is ready.
+const dropdownLinks = document.querySelectorAll(".dropdown .links a");
+dropdownLinks.forEach(link => {
+    link.addEventListener('click', cancel);
 });
+
+const cancelBtn = document.querySelector(".cancel");
+if(cancelBtn) {
+    cancelBtn.addEventListener('click', cancel);
+}
 
 // Typewriter Effect
 const texts = [
@@ -103,7 +98,7 @@ function loadImages() {
 }
 
 // Initial load
-document.addEventListener('DOMContentLoaded', loadImages);
+loadImages();
 
 function loadMoreImages() {
     loadImages();
